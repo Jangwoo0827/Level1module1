@@ -22,6 +22,7 @@ class Car:
         else:
             print("Can't drive! Fill with gasoline before driving.")
 
+
 # ================== DO NOT MODIFY THE CODE ABOVE ============================
 
 
@@ -29,8 +30,10 @@ class Car:
 #       2) Look at the Car class and figure out how to drive the car 50 miles
 #       3) return the Car Object from the test_drive() function
 def test_drive():
+    Car.add_gasoline(Car)
+    Car.drive(Car, 50)
+    return Car
 
-    return None
 
 # ================== DO NOT MODIFY THE CODE BELOW ============================
 
