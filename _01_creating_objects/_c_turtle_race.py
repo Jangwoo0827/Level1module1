@@ -70,19 +70,28 @@ if __name__ == '__main__':
         color_2 += 1
         t_list.append(turtle.Turtle())
         t_list[i].shape('turtle')
-        t_list[i].speed(0)
+        t_list[i].speed(2)
         t_list[i].penup()
         t_list[i].goto(-416, y)
         t_list[i].color(color_1)
         y -= 56
 
     # TODO 7) Move each turtle forward a random distance between 1 and 20
+    huh = 1
     completed = False
     x = None
     winner = None
     while not completed:
         for i in range(8):
-            t_list[i].forward(random.randint(-10, 20))
+            huh = random.randint(1, 99)
+            print(huh)
+            if 0 < huh < 5:
+                t_list[i].forward(random.randint(-20, -20))
+                huh = random.randint(1, 39)
+                if huh == 5:
+                    t_list[i].forward(random.randint(100, 1000))
+            if huh > 5:
+                t_list[i].forward(random.randint(0, 3))
             x = t_list[i].xcor()
             if x > 349:
                 completed = True
@@ -145,5 +154,4 @@ if __name__ == '__main__':
 
     # EXTRA: Create different colors for each turtle and code a special
     # dance for the winning turtle!
-    #BRRRR
     turtle.done()
