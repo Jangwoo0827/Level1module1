@@ -1,3 +1,4 @@
+
 class Movie:
     def __init__(self, title, stars):
         self.title = title
@@ -44,10 +45,26 @@ if __name__ == '__main__':
     # Use Movie and NetflixQueue classes above to complete the following changes:
 
     # TODO 1) Instantiate (create) at least 5 Movie objects.
-    # TODO 2) Use the Movie class to get the ticket price of one of your movies.
-    # TODO 3) Instantiate a NetflixQueue object.
+    M1 = Movie("M1", 1)
+    M2 = Movie("M2", 2)
+    M3 = Movie("M3", 3)
+    M4 = Movie("M4", 4)
+    M5 = Movie("M5", 5)
+    # TODO 2) InstaUse the Movie class to get the ticket price of one of your movies.
+    M5.get_ticket_price()
+    # TODO 3) initiate a NetflixQueue object.
+    Netflix = NetflixQueue()
     # TODO 4) Add your movies to the Netflix queue.
+    Netflix.add_movie(M1)
+    Netflix.add_movie(M2)
+    Netflix.add_movie(M3)
+    Netflix.add_movie(M4)
+    Netflix.add_movie(M5)
     # TODO 5) Print all the movies in your queue.
+    Netflix.print_movies()
     # TODO 6) Use your NetflixQueue object to finish the sentence "the best movie is...."
+    Netflix.sort_movies_by_rating()
+    List = Netflix.movies
+    print("The best movie is", List[0].to_string())
+    print("The second best movie is", List[1].to_string())
     # TODO 7) Use your NetflixQueue to finish the sentence "the second best movie is...."
-
