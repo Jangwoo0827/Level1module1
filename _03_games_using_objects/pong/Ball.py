@@ -57,6 +57,7 @@ class Ball():
             edge_y = paddle.y + paddle.height  # Ball is below the paddle
             side = 'bottom'
 
+
         # Get distance from pythagoream theorem
         dist_x = self.x - edge_x
         dist_y = self.y - edge_y
