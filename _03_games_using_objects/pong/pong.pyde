@@ -20,8 +20,9 @@ def setup():
     global paddle
     global padddle
     # 5. Initialize your paddle variable to a new Paddle() for example:
-    paddle = Paddle(400)
-    padddle = Paddle(0, 0)
+    paddle = Paddle(770, 300)
+    padddle = Paddle(10, 300)
+
 def draw():
     global score
     if not started:
@@ -59,12 +60,12 @@ def draw():
     #     the paddle increases the player score
     #if ball.currently_intersects:
         #score+=1
-    if ball.y > 700:
-        text("Up wins", 400, 300)
-        noLoop()
-    if ball.y < 0:
-        text("Down wins", 400, 300)
-        noLoop()
+    if ball.x > width:
+        text("Left wins", 400, 300)
+        #noLoop()
+    if ball.x < 0:
+        text("Right wins", 400, 300)
+        #noLoop()
     #*EXTRA*
     # Can you figure out how to make a 2 player pong game with paddles on
     # the left and right on the screen?
@@ -78,11 +79,11 @@ def keyPressed():
         global started
         started = True 
     elif key == CODED:
-        if keyCode == LEFT:
+        if keyCode == UP:
             paddle.x_speed= -8
-        if keyCode == RIGHT:
+        if keyCode == DOWN:
             paddle.x_speed= 8
-    elif key == 'a':
+    elif key == 'e':
             padddle.x_speed = -8
     elif key == 'd':
             padddle.x_speed = 8
@@ -93,11 +94,11 @@ def keyPressed():
 #     Does the paddle stop when the keys are released?
 def keyReleased():
     if key == CODED:
-        if keyCode == LEFT:
+        if keyCode == UP:
             paddle.x_speed= 0
-        if keyCode == RIGHT:
+        if keyCode == DOWN:
             paddle.x_speed= 0
-    elif key == 'a':
+    elif key == 'e':
         padddle.x_speed= 0
     elif key == 'd':
         padddle.x_speed= 0

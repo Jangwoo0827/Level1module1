@@ -4,7 +4,7 @@ color_progression = ['#FFFFFF', '#FFFF00', '#FFFA00', '#FF0000',
                      '#800080', '#0000FF']
 
 class Ball():
-    def __init__(self, x=400, y=0, ball_speed=5, radius=20):
+    def __init__(self, x=400, y=300, ball_speed=5, radius=20):
         self.x = x
         self.y = y
         self.speed = ball_speed
@@ -12,14 +12,16 @@ class Ball():
         self.color_index = 0
         self.ball_color = color_progression[self.color_index]
         self.x_speed = random(-self.speed, self.speed)
-        self.y_speed = self.speed
+        self.y_speed = self.speed -10 
         self.currently_intersects = False
         
     def update(self):
-        if self.x + self.radius > width or self.x - self.radius < 0:
-            self.x_speed = -self.x_speed
+        #if self.x + self.radius > width or self.x - self.radius < 0:
+            #self.x_speed = -self.x_speed
             
-        if self.y + self.radius < 0:
+        if self.y + self.radius < (self.radius):
+            self.y_speed = -self.y_speed
+        if self.y + self.radius > height:
             self.y_speed = -self.y_speed
             
         self.x += self.x_speed
@@ -45,7 +47,7 @@ class Ball():
         edge_y = self.y
 
         if self.x < paddle.x:
-            edge_x = paddle.x                  # Ball is left of the paddle
+            edge_x = paddle.x                 # Ball is left of the paddle
             side = 'left'
         elif self.x > paddle.x + paddle.width:
             edge_x = paddle.x + paddle.width   # Ball is right of the paddle
@@ -80,9 +82,10 @@ class Ball():
                     self.x_speed = -self.x_speed
                 else:
                     self.y_speed = -self.y_speed
-        else:
+
+            else:
             # Sometimes upon first collision the ball would still be within
             # the paddle, causing the ball to rebound back and forth.
             # Resetting the variable here ensures there's only 1 change of
             # direction until the ball and paddle no longer intersect 
-            self.currently_intersects = False
+                self.currently_intersects = False
